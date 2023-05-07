@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "app-frontend2": {
+    "tsi3-front-end": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/app-frontend2",
+            "outputPath": "dist/tsi3-front-end",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -63,10 +63,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "app-frontend2:build:production"
+              "browserTarget": "tsi3-front-end:build:production"
             },
             "development": {
-              "browserTarget": "app-frontend2:build:development"
+              "browserTarget": "tsi3-front-end:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -74,7 +74,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "app-frontend2:build"
+            "browserTarget": "tsi3-front-end:build"
           }
         },
         "test": {

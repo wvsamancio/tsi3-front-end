@@ -9,6 +9,7 @@ import { ContributeService } from 'src/app/services/contribute.service';
 })
 export class ContributionsComponent {
   public contributions: Contribute | any;
+  public isLoading: boolean = false;
 
   constructor(private contributeService: ContributeService) {}
 
@@ -16,6 +17,7 @@ export class ContributionsComponent {
     this.contributeService.getContributions().subscribe(
       response => {
         this.contributions = response;
+        this.isLoading = true;
       },
       error => {
         console.log(error);

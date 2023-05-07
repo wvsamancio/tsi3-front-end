@@ -1,13 +1,18 @@
 <h1 class="text-center my-2">Minhas Contribuições:</h1>
 
-<div class="card my-2" *ngFor="let contribute of contributions">
-  <div class="row card-body">
-    <div class="col-10">
-      <div class="row">{{ contribute.content }}</div>
-      <div class="row">{{ contribute.department }}</div>
-    </div>
-    <div class="col-2 d-flex align-items-center justify-content-center">
-      <i [routerLink]="[contribute.id]" class="fi fi-rr-eye"></i>
+<div *ngIf="isLoading">
+  <div *ngIf="contributions.length == 0">
+    <p>Nenhuma contribuição feita até o momento.</p>
+  </div>
+  <div class="card my-2" *ngFor="let contribute of contributions">
+    <div class="row card-body">
+      <div class="col-10">
+        <div class="row">{{ contribute.content }}</div>
+        <div class="row">{{ contribute.department }}</div>
+      </div>
+      <div class="col-2 d-flex align-items-center justify-content-center">
+        <i [routerLink]="[contribute.id]" class="fi fi-rr-eye"></i>
+      </div>
     </div>
   </div>
 </div>

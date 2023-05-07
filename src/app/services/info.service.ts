@@ -7,7 +7,7 @@ import { Info } from '../interfaces/info';
   providedIn: 'root'
 })
 export class InfoService {
-  private url: string = 'http://localhost:8080/infos';
+  private url: string = 'https://tsi3-back-end.herokuapp.com/infos';
 
   constructor(private http: HttpClient) {}
 

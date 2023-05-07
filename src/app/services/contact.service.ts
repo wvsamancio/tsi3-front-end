@@ -7,7 +7,7 @@ import { Contact } from '../interfaces/contact';
   providedIn: 'root'
 })
 export class ContactService {
-  private url: string = 'http://localhost:8080/contacts'
+  private url: string = 'https://tsi3-back-end.herokuapp.com/contacts'
 
   constructor(private http: HttpClient) {}
 

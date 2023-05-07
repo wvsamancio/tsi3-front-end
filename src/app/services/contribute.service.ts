@@ -7,7 +7,7 @@ import { Contribute } from '../interfaces/contribute';
   providedIn: 'root'
 })
 export class ContributeService {
-  private url: string = 'http://localhost:8080/contributions'
+  private url: string = 'https://tsi3-back-end.herokuapp.com/contributions'
 
   constructor(private http: HttpClient) {}
 

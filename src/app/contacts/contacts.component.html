@@ -1,0 +1,13 @@
+<h1 class="text-center my-2">Contatos:</h1>
+
+<div class="card my-2" *ngFor="let contact of contacts">
+  <div class="row card-body">
+    <div class="col-2 d-flex align-items-center justify-content-center">
+      <i class="{{ contact.icon }}"></i>
+    </div>
+    <div class="col-10">
+      <div class="row">{{ contact.label }}</div>
+      <div class="row">{{ contact.value }}</div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,113 @@
+<header>
+  <nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand">
+        <img
+          src="../assets/header-icons/casa.svg"
+          alt="Logo"
+          width="30"
+          height="24"
+          class="d-inline-block align-text-top"
+        />
+        Prefeitura
+      </a>
+    </div>
+  </nav>
+  <div class="card-header">
+    <ul class="nav nav-tabs nav-fill" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button
+          class="nav-link"
+          id="infos-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#infos-tab-pane"
+          type="button"
+          role="tab"
+          aria-controls="infos-tab-pane"
+          aria-selected="true"
+          [routerLinkActive]="['active']"
+          [routerLink]="['infos']"
+        >
+          <img
+            src="../assets/nav-icons/chama.svg"
+            alt="Logo"
+            width="30"
+            height="24"
+            class="d-inline-block align-text-top"
+          />
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button
+          class="nav-link"
+          id="contribute-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#contribute-tab-pane"
+          type="button"
+          role="tab"
+          aria-controls="contribute-tab-pane"
+          aria-selected="false"
+          [routerLinkActive]="['active']"
+          [routerLink]="['contribute']"
+        >
+          <img
+            src="../assets/nav-icons/megafone.svg"
+            alt="Logo"
+            width="30"
+            height="24"
+            class="d-inline-block align-text-top"
+          />
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button
+          class="nav-link"
+          id="contributions-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#contributions-tab-pane"
+          type="button"
+          role="tab"
+          aria-controls="contributions-tab-pane"
+          aria-selected="false"
+          [routerLinkActive]="['active']"
+          [routerLink]="['contributions']"
+        >
+          <img
+            src="../assets/nav-icons/seguindo.svg"
+            alt="Logo"
+            width="30"
+            height="24"
+            class="d-inline-block align-text-top"
+          />
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button
+          class="nav-link"
+          id="contacts-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#contacts-tab-pane"
+          type="button"
+          role="tab"
+          aria-controls="contacts-tab-pane"
+          aria-selected="false"
+          [routerLinkActive]="['active']"
+          [routerLink]="['contacts']"
+        >
+          <img
+            src="../assets/nav-icons/comentarios-pergunta.svg"
+            alt="Logo"
+            width="30"
+            height="24"
+            class="d-inline-block align-text-top"
+          />
+        </button>
+      </li>
+    </ul>
+  </div>
+</header>
+<main class="container-fluid">
+  <div class="card-body">
+    <router-outlet></router-outlet>
+  </div>
+</main>

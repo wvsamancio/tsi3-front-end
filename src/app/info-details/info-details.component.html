@@ -1,0 +1,22 @@
+<h1 class="text-center my-2">Detalhes:</h1>
+
+<ng-template [ngIf]="isLoading">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">{{ info.title }}</h5>
+      <p class="card-text">{{ info.content }}</p>
+    </div>
+  </div>
+
+  <div class="row my-2 text-end">
+    <div>
+      <button
+        type="button"
+        [routerLink]="['/infos']"
+        class="btn btn-primary btn-lg"
+      >
+        Voltar
+      </button>
+    </div>
+  </div>
+</ng-template>

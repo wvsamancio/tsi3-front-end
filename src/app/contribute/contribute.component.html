@@ -1,0 +1,61 @@
+<h1 class="text-center my-2">Contribuir:</h1>
+
+<div *ngIf="success" class="alert alert-success">
+  Contribuição enviada ao departamento de {{ contributeSaved.department }} com
+  sucesso! <br />
+  Verifique os detalhes
+  <a [routerLink]="['/contributions', contributeSaved.id]" class="alert-link"
+    >aqui</a
+  >.
+</div>
+<p>
+  Ao submeter um novo conteúdo ao departamento responsável sua localização atual
+  é também será enviada.
+</p>
+<form #contributeForm="ngForm" (ngSubmit)="onSubmit(contributeForm)">
+  <div class="mb-3">
+    <label for="content" class="form-label">Conteúdo</label>
+    <div class="input-group has-validation">
+      <textarea
+        class="form-control"
+        rows="3"
+        id="validationServerUsername"
+        aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback"
+        name="content"
+        #content="ngModel"
+        [ngModel]="content.value"
+        required
+      ></textarea>
+    </div>
+  </div>
+
+  <div
+    *ngIf="content.invalid && (content.dirty || content.touched)"
+    class="alert alert-info"
+  >
+    Necessário preencher o conteúdo.
+  </div>
+
+  <div class="mb-3">
+    <label for="department" class="form-label">Departamento</label>
+    <select
+      class="form-control"
+      name="department"
+      #department="ngModel"
+      [ngModel]="department.value"
+      required
+    >
+      <option selected>Selecione um departmento</option>
+      <option *ngFor="let item of departments" [value]="item.name">
+        {{ item.name }}
+      </option>
+    </select>
+  </div>
+  <button
+    [disabled]="contributeForm.invalid"
+    type="submit"
+    class="btn btn-primary btn-lg"
+  >
+    Enviar
+  </button>
+</form>

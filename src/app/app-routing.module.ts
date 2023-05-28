@@ -6,16 +6,17 @@ import { ContributionsComponent } from './contributions/contributions.component'
 import { ContactsComponent } from './contacts/contacts.component';
 import { InfoDetailsComponent } from './info-details/info-details.component';
 import { ContributeDetailsComponent } from './contribute-details/contribute-details.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  { path: '', component: InfosComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'infos', component: InfosComponent },
   { path: 'infos/:id', component: InfoDetailsComponent },
   { path: 'contribute', component: ContributeComponent },
   { path: 'contributions', component: ContributionsComponent },
   { path: 'contributions/:id', component: ContributeDetailsComponent },
   { path: 'contacts', component: ContactsComponent },
-  { path: '**', redirectTo: '' }
+  { path: '**', redirectTo: 'infos' }
 ];
 
 @NgModule({

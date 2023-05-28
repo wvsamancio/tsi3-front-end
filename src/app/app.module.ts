@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { InfoDetailsComponent } from './info-details/info-details.component';
 import { ContributeDetailsComponent } from './contribute-details/contribute-details.component';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { GoogleMapsModule } from '@angular/google-maps';
     ContributionsComponent,
     ContactsComponent,
     InfoDetailsComponent,
-    ContributeDetailsComponent
+    ContributeDetailsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

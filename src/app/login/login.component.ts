@@ -23,8 +23,8 @@ export class LoginComponent {
   ngOnInit() {
   }
 
-  handleLogin() {
-    this.signService.authenticationService(this.username, this.password).subscribe((result)=> {
+  async handleLogin() {
+    this.signService.authenticationService(this.username, this.password).then((result)=> {
       this.invalidLogin = false;
       this.loginSuccess = true;
       this.successMessage = 'Login Successful.';

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Contribute } from '../interfaces/contribute';
 
@@ -7,7 +7,7 @@ import { Contribute } from '../interfaces/contribute';
   providedIn: 'root'
 })
 export class ContributeService {
-  private url: string = 'https://tsi3-back-end.herokuapp.com/contributions'
+  private url: string = 'https://tsi3-back-end.herokuapp.com/sign'
 
   constructor(private http: HttpClient) {}
 

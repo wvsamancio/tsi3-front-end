@@ -12,6 +12,7 @@ export class ContributeComponent {
   public departments: Array<{name: string}> = [
     { name: 'Água e Esgoto' },
     { name: 'Educação' },
+    { name: 'Limpeza Urbana' },
     { name: 'Saúde' },
     { name: 'Segurança' },
     { name: 'Transporte' },
@@ -22,12 +23,18 @@ export class ContributeComponent {
   private lat: number = 0;
   private lng: number = 0;
 
+  private username: any = sessionStorage.getItem('authenticatedUser');
+  private token: any = sessionStorage.getItem('token');
+
   public success: boolean = false;
   public contributeSaved: Contribute = {} as Contribute;
 
   constructor(private contributeService: ContributeService) {}
 
   getCurrentLocation() {
+    if (!this.username) {
+      window.location.href = '/login';
+    }
     if (navigator.geolocation) {
      navigator.geolocation.getCurrentPosition(position => {
       this.lat = position.coords.latitude;
@@ -44,16 +51,15 @@ export class ContributeComponent {
     this.contribute.department = contributeFormValue.value.department;
     this.contribute.lat = this.lat.toString();
     this.contribute.lng = this.lng.toString();
-    this.contribute.user = "123455678900"
+    this.contribute.username = this.username
 
-    this.contributeService.saveContribute(this.contribute).subscribe(
-      response => {
+    this.contributeService.saveContribute(this.contribute, this.token)
+      .then(response => {
         this.contributeSaved = response;
         this.success = true;
         contributeFormValue.reset();
-      },
-      error => error
-    );
+      })
+      .catch(error => error);
   }
 
   ngOnInit(): void {

@@ -4,5 +4,5 @@ export interface Contribute {
     department: string;
     lat: string;
     lng: string;
-    user: string;
+    username: string;
 }

@@ -4,7 +4,13 @@
   Contribuição enviada ao departamento de {{ contributeSaved.department }} com
   sucesso! <br />
   Verifique os detalhes
-  <a [routerLink]="['/contributions', contributeSaved.id]" class="alert-link"
+  <a
+    [routerLink]="[
+      '/contributions',
+      contributeSaved.username,
+      contributeSaved.id
+    ]"
+    class="alert-link"
     >aqui</a
   >.
 </div>

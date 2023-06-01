@@ -13,8 +13,8 @@ const routes: Routes = [
   { path: 'infos', component: InfosComponent },
   { path: 'infos/:id', component: InfoDetailsComponent },
   { path: 'contribute', component: ContributeComponent },
-  { path: 'contributions', component: ContributionsComponent },
-  { path: 'contributions/:id', component: ContributeDetailsComponent },
+  { path: 'contributions/:username', component: ContributionsComponent },
+  { path: 'contributions/:username/:id', component: ContributeDetailsComponent },
   { path: 'contacts', component: ContactsComponent },
   { path: '**', redirectTo: 'infos' }
 ];

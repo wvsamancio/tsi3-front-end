@@ -13,19 +13,19 @@ export class ContributeDetailsComponent {
   public googleLatLng: google.maps.LatLng | any;
   public isLoading: boolean = false;
 
+  private token: any = sessionStorage.getItem('token');
+
   constructor(private route: ActivatedRoute, private contributeService: ContributeService) {}
 
   ngOnInit(): void {
+    const username = this.route.snapshot.params['username'];
     const id = this.route.snapshot.params['id'];
-    this.contributeService.getContribute(id).subscribe(
-      response => {
+    this.contributeService.getUserContribute(username, id, this.token)
+      .then(response => {
         this.contribute = response;
         this.googleLatLng = new google.maps.LatLng(this.contribute.lat, this.contribute.lng);
         this.isLoading = true;
-      },
-      error => {
-        console.log(error);
-      }
-    )
+      })
+      .catch(error => error);
   }
 }

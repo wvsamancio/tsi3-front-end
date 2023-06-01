@@ -20,15 +20,14 @@ export class LoginComponent {
     private router: Router,
     private signService: SignService) {   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   async handleLogin() {
     this.signService.authenticationService(this.username, this.password).then((result)=> {
       this.invalidLogin = false;
       this.loginSuccess = true;
       this.successMessage = 'Login Successful.';
-      this.router.navigate(['/hello-world']);
+      this.router.navigate(['/infos']);
     }, () => {
       this.invalidLogin = true;
       this.loginSuccess = false;

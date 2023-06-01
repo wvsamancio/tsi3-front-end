@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { map } from 'rxjs/operators';
 
-
 import axios from "axios";
 
 @Injectable({
@@ -11,6 +10,7 @@ import axios from "axios";
 })
 export class SignService {
   USER_NAME_SESSION_ATTRIBUTE_NAME = 'authenticatedUser'
+  TOKEN_SESSION_ATTRIBUTE = 'token'
 
   private url: string = 'https://tsi3-back-end.herokuapp.com/sign';
 
@@ -27,19 +27,21 @@ export class SignService {
     });
     this.username = username;
     this.password = password;
-    this.registerSuccessfulLogin(username);
+    this.registerSuccessfulLogin(username, password);
   }
 
   createBasicAuthToken(username: any, password: any) {
     return 'Basic ' + window.btoa(username + ":" + password)
   }
 
-  registerSuccessfulLogin(username: any) {
+  registerSuccessfulLogin(username: any, password: any) {
     sessionStorage.setItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME, username)
+    sessionStorage.setItem(this.TOKEN_SESSION_ATTRIBUTE, this.createBasicAuthToken(username, password))
   }
 
   logout() {
     sessionStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME);
+    sessionStorage.removeItem(this.TOKEN_SESSION_ATTRIBUTE);
     this.username = null;
     this.password = null;
   }
